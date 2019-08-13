@@ -3,13 +3,10 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import React from 'react';
 import PropTypes from 'prop-types';
-import LanguageSelect from './LanguageSelect';
 import PeriodSelect from './PeriodSelect';
 import { ReactComponent as Logo } from '../images/logo.svg';
 
 const TopBar = ({
-  onChangeLanguage,
-  selectedLanguage,
   onChangePeriod,
   selectedPeriod,
 }) => {
@@ -38,12 +35,6 @@ const TopBar = ({
           `}
         />
       </a>
-      <SelectWrapper>
-        <LanguageSelect
-          selectedValue={selectedLanguage}
-          onChange={onChangeLanguage}
-        />
-      </SelectWrapper>
       <SelectWrapper width={180}>
         <PeriodSelect
           selectedValue={selectedPeriod}
@@ -57,8 +48,6 @@ const TopBar = ({
 TopBar.propTypes = {
   selectedLanguage: PropTypes.string,
   selectedPeriod: PropTypes.string,
-  onChangeLanguage: PropTypes.func.isRequired,
-  onChangePeriod: PropTypes.func.isRequired,
 };
 
 export default React.memo(TopBar);

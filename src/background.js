@@ -1,12 +1,17 @@
-import { fetchRepositories } from '@huchenme/github-trending';
-import { allLanguagesValue, isEmptyList } from './helpers/github';
+
+import { isEmptyList, getProducts } from './helpers/producthunt';
 import {
-  KEY_REPOSITORIES,
-  KEY_SELECTED_LANGUAGE,
+  KEY_PRODUCTS,
   KEY_SELECTED_PERIOD,
   getObject,
   setObject,
 } from './helpers/localStorage';
+
+
+const tokenKey = "producthunt_token";
+const token =
+  window.localStorage.getItem(tokenKey) ||
+  "f481389cba9d24863cbf01c6c4e4d1315f11fafaf3671858db308e29a8ed493e";
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log('onInstalled....');
@@ -27,9 +32,9 @@ chrome.alarms.onAlarm.addListener(alarm => {
     chrome.alarms.get('refresh', alarm => {
       if (alarm) {
         console.log('Refresh alarm exists. Yay.');
-        const repos = getObject(KEY_REPOSITORIES);
-        if (isEmptyList(repos)) {
-          console.log('Refetching because the repo was empty');
+        const products = getObject(KEY_PRODUCTS);
+        if (isEmptyList(products)) {
+          console.log('Refetching because the product list was empty');
           startRequest();
         }
       } else {
@@ -49,15 +54,15 @@ function scheduleRequest() {
 }
 
 async function startRequest() {
-  console.log('start HTTP Request...');
+  console.log('start fetching');
   const period = getObject(KEY_SELECTED_PERIOD);
-  const lang = getObject(KEY_SELECTED_LANGUAGE);
-  const data = await fetchRepositories({
-    language: lang === allLanguagesValue ? undefined : lang,
-    since: period,
-  });
-  if (data && data.length > 0) {
-    console.log('received data', data);
-    setObject(KEY_REPOSITORIES, data);
+  try {
+    let result = await getProducts(period);
+    const { data } = result;
+    setObject(KEY_PRODUCTS, data);
+  } catch (e) {
+    console.log(e);
   }
+    
 }
+

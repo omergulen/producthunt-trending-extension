@@ -45,6 +45,7 @@ export default function NetworkError({ onReload, onClose }) {
             font-size: 0.8125rem;
             color: rgb(220, 0, 78);
             font-weight: 500;
+            cursor: pointer;
             line-height: 1.75;
             border-radius: 4px;
             letter-spacing: 0.02857em;

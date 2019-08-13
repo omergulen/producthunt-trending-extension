@@ -59,4 +59,3 @@ export const languages = [
 export const findLanguage = value =>
   find(languages, { value: value }) || allLanguagesOption;
 
-export const isEmptyList = list => !list || list.length === 0;

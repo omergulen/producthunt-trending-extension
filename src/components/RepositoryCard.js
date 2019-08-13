@@ -1,76 +1,63 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import styled from '@emotion/styled';
 
-import { ReactComponent as StarFilledIcon } from '../images/star-filled.svg';
-import { ReactComponent as BitbucketForksIcon } from '../images/forks.svg';
-import { ReactComponent as BitbucketReposIcon } from '../images/repos.svg';
+import { ReactComponent as CalendarIcon } from '../images/calendar.svg';
+import { ReactComponent as UpIcon } from '../images/up.svg';
+import { ReactComponent as CommentIcon } from '../images/comment.svg';
 
 import Icon from './Icon';
 import InfoItem from './InfoItem';
 
-import { getRefUrl, getAvatarString } from '../helpers/github';
+class RepositoryCard extends React.Component {
 
-const RepositoryCard = props => (
-  <Card href={getRefUrl(props.url)}>
-    <Left>
-      <Avatar src={getAvatarString(props.avatar, 160)} />
-    </Left>
-    <Middle>
-      <Title>{props.name}</Title>
-      <Description>{props.description}</Description>
-      <AdditionalInfo>
-        <AdditionalInfoSection>
-          <AdditionalInfoItem>
-            <InfoItem icon={<Icon glyph={BitbucketReposIcon} />}>
-              {props.author}
-            </InfoItem>
-          </AdditionalInfoItem>
-          {props.language ? (
-            <AdditionalInfoItem>
-              <InfoItem icon={<LanguageColor color={props.languageColor} />}>
-                {props.language}
-              </InfoItem>
-            </AdditionalInfoItem>
-          ) : null}
-          <AdditionalInfoItem>
-            <InfoItem icon={<Icon glyph={StarFilledIcon} />}>
-              {props.stars.toLocaleString()}
-            </InfoItem>
-          </AdditionalInfoItem>
-          <AdditionalInfoItem>
-            <InfoItem icon={<Icon glyph={BitbucketForksIcon} />}>
-              {props.forks.toLocaleString()}
-            </InfoItem>
-          </AdditionalInfoItem>
-        </AdditionalInfoSection>
-      </AdditionalInfo>
-    </Middle>
-    <Right>
-      <CurrentStar>{props.currentPeriodStars}</CurrentStar>
-    </Right>
-  </Card>
-);
+  render() {
+    const { node } = this.props;
 
-RepositoryCard.propTypes = {
-  author: PropTypes.string,
-  name: PropTypes.string,
-  url: PropTypes.string,
-  avatar: PropTypes.string,
-  description: PropTypes.string,
-  language: PropTypes.string,
-  languageCode: PropTypes.string,
-  stars: PropTypes.number,
-  forks: PropTypes.number,
-  currentPeriodStars: PropTypes.number,
-};
+    if (node) {
+      return (
+        <Card href={node.url} target="_blank" >
+          <Left>
+            <Avatar src={node.thumbnail.url} />
+          </Left>
+          <Middle>
+            <Title>{node.name}</Title>
+            <Description>{node.description}</Description>
+            <AdditionalInfo>
+              <AdditionalInfoSection>
+              <AdditionalInfoItem>
+                  <InfoItem icon={<Icon glyph={CalendarIcon} />}>
+                    {new Date(node.createdAt).toUTCString().slice(0, -13)}
+                  </InfoItem>
+                </AdditionalInfoItem>
+                <AdditionalInfoItem>
+                  <InfoItem icon={<Icon glyph={CommentIcon} />}>
+                    {node.commentsCount}
+                  </InfoItem>
+                </AdditionalInfoItem>
+                <AdditionalInfoItem>
+                  <InfoItem icon={<MakerAvatar src={node.user.profileImage} />}>
+                    {node.user.name}
+                  </InfoItem>
+                </AdditionalInfoItem>
+              </AdditionalInfoSection>
+            </AdditionalInfo>
+          </Middle>
+          <Right>
+            <CurrentStar>
+              <Icon glyph={UpIcon} />
+              {node.votesCount}
+            </CurrentStar>
+          </Right>
+        </Card>
+      );
+    } else {
+      return (<div>Loading...</div>)
+    }
+  }
 
-RepositoryCard.defaultProps = {
-  languageCode: '#586069',
-  stars: 0,
-  forks: 0,
-  currentPeriodStars: 0,
-};
+}
+
 
 export default RepositoryCard;
 
@@ -92,6 +79,9 @@ const Card = styled.a`
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 1px 11px 12px -6px rgba(0,0,0,0.61);
+    -moz-box-shadow: 1px 11px 12px -6px rgba(0,0,0,0.61);
+    box-shadow: 1px 11px 12px -6px rgba(0,0,0,0.61);
   }
 `;
 
@@ -109,12 +99,23 @@ const Right = styled.div`
   margin-left: 30px;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Avatar = styled.img`
   height: 80px;
   width: 80px;
   border-radius: 5px;
+  overflow: hidden;
+  border: 0;
+  vertical-align: bottom;
+`;
+
+const MakerAvatar = styled.img`
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
   overflow: hidden;
   border: 0;
   vertical-align: bottom;
@@ -169,19 +170,13 @@ const AdditionalInfoItem = styled.div`
   }
 `;
 
-const LanguageColor = styled.div`
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  background-color: ${props => props.color || '#586069'};
-`;
-
 const CurrentStar = styled.div`
   position: relative;
   left: -4px;
   top: 4px;
   font-size: 40px;
   line-height: 1;
+  text-align: center;
   color: rgba(0, 0, 0, 0.38);
   font-weight: 100;
   font-family: 'Futura PT';

@@ -33,12 +33,12 @@ export default function InfoItem({ children, icon }) {
             width={16}
             fill="#ED2939"
           />
-          <span>in Singapore.</span>
+          <span>in Turkey.</span>
         </div>
       </Row>
       <Row>
         <StyleFeedback showEmail={showEmail} onClick={() => setShowEmail(true)}>
-          {showEmail ? 'chen@huchen.dev' : 'Send Feedback'}
+          {showEmail ? <a rel="noopener noreferrer" href="mailto:omrglen@gmail.com" target="_blank">omrglen@gmail.com</a> : 'Send Feedback'}
         </StyleFeedback>
         <div
           css={link}
@@ -53,7 +53,7 @@ export default function InfoItem({ children, icon }) {
         >
           Clear Cache
         </div>
-        <a css={link} href="https://github.com/huchenme/hacker-tab-extension">
+        <a css={link} rel="noopener noreferrer" target="_blank"href="https://github.com/huchenme/hacker-tab-extension">
           GitHub
         </a>
       </Row>

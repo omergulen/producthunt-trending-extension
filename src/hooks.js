@@ -1,18 +1,17 @@
 import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
-import { fetchRepositories } from '@huchenme/github-trending';
+import { getProducts, isEmptyList } from './helpers/producthunt';
 import useLocalStorage from './hooks/useLocalStorage';
 
-import { allLanguagesValue, isEmptyList } from './helpers/github';
-
 import {
-  KEY_REPOSITORIES,
-  KEY_SELECTED_LANGUAGE,
+  KEY_PRODUCTS,
   KEY_SELECTED_PERIOD,
   KEY_SCHEMA_VERSION,
-  CURRENT_SCHEMA_VERSION,
+  CURRENT_SCHEMA_VERSION
 } from './helpers/localStorage';
 
-export const useFetchRepositories = ({ language, since }) => {
+
+
+export const useFetchProducts = ({ since }) => {
   const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState();
   const [error, setError] = useState(false);
@@ -21,14 +20,16 @@ export const useFetchRepositories = ({ language, since }) => {
     try {
       setLoading(true);
       setError(false);
-      const data = await fetchRepositories({ language, since });
+      let result = await getProducts(since);
+      const { data } = result;
       setData(data);
     } catch (e) {
+      console.log(e.message);
       setError(true);
     } finally {
       setLoading(false);
     }
-  }, [language, since]);
+  }, [since]);
 
   return {
     isLoading,
@@ -46,23 +47,18 @@ export function usePrevious(value) {
   return ref.current;
 }
 
-export const useRepositories = () => {
-  const [selectedLanguage, setSelectedLanguage] = useSelectedLanguage();
+export const useProducts = () => {
   const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
-  const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES, []);
-  const prevLang = usePrevious(selectedLanguage);
+  const [products, setProducts] = useLocalStorage(KEY_PRODUCTS, []);
+
   const prevPeriod = usePrevious(selectedPeriod);
 
-  const valueChanged =
-    (prevLang && prevLang !== selectedLanguage) ||
-    prevPeriod !== selectedPeriod;
+  const valueChanged = prevPeriod !== selectedPeriod;
 
-  const isEmpty = isEmptyList(repositories);
+  const isEmpty = isEmptyList(products);
 
-  const { isLoading, data, error, fetchData } = useFetchRepositories({
+  const { isLoading, data, error, fetchData } = useFetchProducts({
     since: selectedPeriod,
-    language:
-      selectedLanguage !== allLanguagesValue ? selectedLanguage : undefined,
   });
 
   useEffect(() => {
@@ -74,7 +70,7 @@ export const useRepositories = () => {
 
   useMemo(() => {
     if (!isLoading && !error && data) {
-      setRepositories(data);
+      setProducts(data);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error, isLoading]);
@@ -82,18 +78,13 @@ export const useRepositories = () => {
   return {
     isEmpty,
     isLoading,
-    repositories,
+    products,
     error,
     reload: fetchData,
-    selectedLanguage,
     selectedPeriod,
-    setSelectedLanguage,
     setSelectedPeriod,
   };
 };
-
-export const useSelectedLanguage = () =>
-  useLocalStorage(KEY_SELECTED_LANGUAGE, allLanguagesValue);
 
 export const useSelectedPeriod = () =>
   useLocalStorage(KEY_SELECTED_PERIOD, 'daily');

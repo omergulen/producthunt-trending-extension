@@ -29,8 +29,11 @@ export default function InfoItem({ children, icon }) {
         width={32}
       />
       <h3>
-        Trending repositories results are currently being dissected in{' '}
-        <a href="https://github.com/trending">GitHub</a>.
+        Trending products results are currently being dissected in{' '}
+        <a css={css`
+          color: #172b4d;
+        `}
+        href="https://www.producthunt.com/">Product Hunt</a>.
       </h3>
       <p>
         This may be a few minutes. Now would be a great time to write that novel

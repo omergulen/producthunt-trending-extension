@@ -13,7 +13,7 @@ import {
   Fade,
 } from './components';
 
-import { useCheckLocalStorageSchema, useRepositories } from './hooks';
+import { useCheckLocalStorageSchema, useProducts } from './hooks';
 
 const App = () => {
   // Clear local storage is schema version not match
@@ -22,14 +22,12 @@ const App = () => {
   const {
     isLoading,
     isEmpty,
-    repositories,
+    products,
     error,
     reload,
-    selectedLanguage,
     selectedPeriod,
-    setSelectedLanguage,
     setSelectedPeriod,
-  } = useRepositories();
+  } = useProducts();
 
   const [showError, setShowError] = useState(false);
 
@@ -49,8 +47,6 @@ const App = () => {
     >
       <TopBarContainer>
         <TopBar
-          onChangeLanguage={setSelectedLanguage}
-          selectedLanguage={selectedLanguage}
           onChangePeriod={setSelectedPeriod}
           selectedPeriod={selectedPeriod}
         />
@@ -88,7 +84,7 @@ const App = () => {
             <EmptyState />
           </div>
         ) : (
-          <RepositoriesList isLoading={isLoading} repositories={repositories} />
+          <RepositoriesList isLoading={isLoading} repositories={products} />
         )}
       </div>
       <Footer />

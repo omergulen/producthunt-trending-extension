@@ -9,16 +9,19 @@ import RepositoryCard from './RepositoryCard';
 import ContentPlaceholder from './ContentPlaceholder';
 import { ReactComponent as RandomIcon } from '../images/random.svg';
 
-import { getRandomRepositories } from '../helpers/github';
+import { getRandomProducts } from '../helpers/producthunt';
 
 const RepositoriesList = ({ repositories, isLoading }) => {
   const [random, setRandom] = useState(() =>
-    getRandomRepositories(repositories)
+    getRandomProducts(repositories)
   );
 
   const changeRandom = useCallback(() => {
-    const newRandom = getRandomRepositories(repositories);
-    setRandom(newRandom);
+    if (repositories && repositories.posts) {
+      const newRandom = getRandomProducts(repositories.posts.edges);
+      console.log(newRandom);
+      setRandom(newRandom);
+    }
   }, [repositories]);
 
   useEffect(() => {
@@ -74,14 +77,14 @@ const RepositoriesList = ({ repositories, isLoading }) => {
         {isLoading ? (
           <ContentPlaceholder size={10} />
         ) : (
-          <List>
-            {repositories.map(rep => (
-              <Card key={rep.url}>
-                <RepositoryCard {...rep} />
-              </Card>
-            ))}
-          </List>
-        )}
+            <List>
+              {repositories.posts.edges.map(rep => (
+                <Card key={rep.url}>
+                  <RepositoryCard {...rep} />
+                </Card>
+              ))}
+            </List>
+          )}
       </Section>
     </Container>
   );
