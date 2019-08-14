@@ -20,7 +20,7 @@
   'ga'
 ); // Note: https protocol here
 
-ga('create', 'UA-134959994-1', 'auto');
+ga('create', 'UA-122322547-3', 'auto');
 ga('set', 'checkProtocolTask', function() {}); // Removes failing protocol check. @see: http://stackoverflow.com/a/22152353/1958200
 ga('require', 'displayfeatures');
 ga('send', 'pageview', '/index.html'); // Specify the virtual path
