@@ -53,7 +53,7 @@ export default function InfoItem({ children, icon }) {
         >
           Clear Cache
         </div>
-        <a css={link} rel="noopener noreferrer" target="_blank"href="https://github.com/huchenme/hacker-tab-extension">
+        <a css={link} rel="noopener noreferrer" target="_blank"href="https://github.com/omergulen/producthunt-trending-extension">
           GitHub
         </a>
       </Row>

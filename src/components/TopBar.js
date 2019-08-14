@@ -13,13 +13,15 @@ const TopBar = ({
   return (
     <Container>
       <a
-        href="https://github.com/huchenme/hacker-tab-extension"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/omergulen/producthunt-trending-extension"
         css={css`
           color: rgba(0, 0, 0, 0.38);
           transition: color 0.5s ease-out;
 
           &:hover {
-            color: rgba(0, 0, 0);
+            color: rgba(218, 85, 47);
           }
         `}
       >
