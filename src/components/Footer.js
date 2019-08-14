@@ -38,7 +38,13 @@ export default function InfoItem({ children, icon }) {
       </Row>
       <Row>
         <StyleFeedback showEmail={showEmail} onClick={() => setShowEmail(true)}>
-          {showEmail ? <a rel="noopener noreferrer" href="mailto:omrglen@gmail.com" target="_blank">omrglen@gmail.com</a> : 'Send Feedback'}
+          {showEmail ? <a css={css`
+            color: rgba(218, 85, 47);
+          `}
+          rel="noopener noreferrer"
+          href="mailto:omrglen@gmail.com"
+          target="_blank">
+            omrglen@gmail.com</a> : 'Send Feedback'}
         </StyleFeedback>
         <div
           css={link}
