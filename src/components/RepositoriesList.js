@@ -73,7 +73,7 @@ const RepositoriesList = ({ repositories, isLoading }) => {
         </Section>
       ) : null}
       <Section>
-        <Title isLoading={isLoading}>Trending Repositories</Title>
+        <Title isLoading={isLoading}>Trending Products</Title>
         {isLoading ? (
           <ContentPlaceholder size={10} />
         ) : (
