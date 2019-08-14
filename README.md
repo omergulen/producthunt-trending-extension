@@ -1,6 +1,6 @@
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&style=flat)](https://chrome.google.com/webstore/detail/kfdccmmkggolbggggimdgbfgfgalgkjo)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&style=flat)](https://chrome.google.com/webstore/detail/product-hunt-trending-tab/kfdccmmkggolbggggimdgbfgfgalgkjo)
 [![Firefox Addons](https://img.shields.io/amo/v/hacker-tab.svg?color=234FC828)](https://addons.mozilla.org/firefox/addon/product-hunt-trending-tab/)
-[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/kfdccmmkggolbggggimdgbfgfgalgkjo/reviews)
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/product-hunt-trending-tab/kfdccmmkggolbggggimdgbfgfgalgkjo/reviews)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/omergulen/producthunt-trending-extension/LICENSE)
 
 
@@ -12,10 +12,10 @@ Product Hunt Trending Tab replaces browser new tab screen with Product Hunt tren
 
 ## Install
 
-<a href="https://chrome.google.com/webstore/detail/kfdccmmkggolbggggimdgbfgfgalgkjo"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_128x128.png" width="48" /></a>
+<a href="https://chrome.google.com/webstore/detail/product-hunt-trending-tab/kfdccmmkggolbggggimdgbfgfgalgkjo"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_128x128.png" width="48" /></a>
 <a href="https://addons.mozilla.org/firefox/addon/product-hunt-trending-tab/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" /></a>
 
-Trusted by hunters, makers and followers! Install Product from [Chrome Web Store](https://chrome.google.com/webstore/detail/kfdccmmkggolbggggimdgbfgfgalgkjo) or [Mozilla Add-ons Store](https://addons.mozilla.org/firefox/addon/product-hunt-trending-tab/).
+Trusted by hunters, makers and followers! Install Product from [Chrome Web Store](https://chrome.google.com/webstore/detail/product-hunt-trending-tab/kfdccmmkggolbggggimdgbfgfgalgkjo) or [Mozilla Add-ons Store](https://addons.mozilla.org/firefox/addon/product-hunt-trending-tab/).
 
 ## View Online
 
@@ -33,7 +33,7 @@ Just write me an [email](mailto:omrglen@gmail.com), or create an [issue](issues)
 
 ## Give us a rating
 
-If you enjoy using it, please help to write a review at [Chrome Web Store](https://chrome.google.com/webstore/detail/kfdccmmkggolbggggimdgbfgfgalgkjo) or [Mozilla Add-ons Store](https://addons.mozilla.org/firefox/addon/product-hunt-trending-tab/), and star this repo. This will motivate me a lot :)
+If you enjoy using it, please help to write a review at [Chrome Web Store](https://chrome.google.com/webstore/detail/product-hunt-trending-tab/kfdccmmkggolbggggimdgbfgfgalgkjo) or [Mozilla Add-ons Store](https://addons.mozilla.org/firefox/addon/product-hunt-trending-tab/), and star this repo. This will motivate me a lot :)
 
 ## Related
 
