@@ -8,7 +8,7 @@ import {
 const tokenKey = "producthunt_token";
 const token =
   window.localStorage.getItem(tokenKey) ||
-  "f481389cba9d24863cbf01c6c4e4d1315f11fafaf3671858db308e29a8ed493e";
+  "7b0847b485e952e44556d6b483d018cd3ec0e63f1e019d0a5db48ff29dfe15ba";
 
 export function getProducts() {
 
