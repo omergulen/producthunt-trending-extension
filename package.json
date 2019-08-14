@@ -1,11 +1,11 @@
 {
-  "name": "hacker-tab-extension",
+  "name": "producthunt-trending-extension",
   "version": "0.0.0",
-  "description": "Browser extension for hackers",
+  "description": "Browser extension for Product Hunt lovers",
   "license": "MIT",
   "keywords": [
     "react",
-    "github",
+    "product hunt",
     "browser extension",
     "chrome extension",
     "firefox extension"
@@ -59,7 +59,8 @@
     "zip:src": "zip -r src.zip src package.json README.md public -x '*.DS_Store'",
     "prebuild-storybook": "rimraf storybook-static",
     "build-storybook": "build-storybook",
-    "release": "npm-run-all build zip"
+    "release": "npm-run-all build zip",
+    "dev": "gatsby develop"
   },
   "eslintConfig": {
     "extends": "react-app",

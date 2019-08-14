@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "name": "hacker-tab-extension",
-  "alias": "hacker-tab-extension.now.sh",
+  "version": 2,
+  "name": "producthunt-trending-extension",
+  "alias": "producthunt-trending-extension.now.sh",
   "github": {
     "silent": true
   }

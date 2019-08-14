@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Hacker Tab",
-  "author": "Hu Chen",
+  "name": "Product Hunt Trending Extension",
+  "author": "Omer Gulen",
   "version": "1.7.0",
-  "description": "Replace browser new tab screen with GitHub trending projects.",
+  "description": "Replace browser new tab screen with Product Hunt trending products.",
   "icons": {
     "16": "16.png",
     "48": "48.png",
