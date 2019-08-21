@@ -3,6 +3,7 @@
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/product-hunt-trending-tab/kfdccmmkggolbggggimdgbfgfgalgkjo/reviews)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/omergulen/producthunt-trending-extension/LICENSE)
 
+<a href="https://www.producthunt.com/posts/product-hunt-trending-new-tab-extension?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-product-hunt-trending-new-tab-extension" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=165248&theme=light" alt="Product Hunt Trending New Tab Extension - Replace Browser new tab with Product Hunt trending projects✨ | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
 ## What is Product Hunt Trending Tab Extension
 
