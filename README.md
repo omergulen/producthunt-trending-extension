@@ -38,7 +38,7 @@ If you enjoy using it, please help to write a review at [Chrome Web Store](https
 
 ## Related
 
-- Product Hunt Trending Tab on [Product Hunt](https://github.com/omergulen/producthunt-trending-extension). (_will be updated_)
+- Product Hunt Trending Tab on [Product Hunt](https://www.producthunt.com/posts/product-hunt-trending-new-tab-extension).
 - [hacker-tab-extension](https://github.com/huchenme/hacker-tab-extension)
 - [How to use React.js to create a cross-browser extension in 5 minutes](https://levelup.gitconnected.com/how-to-use-react-js-to-create-chrome-extension-in-5-minutes-2ddb11899815?source=friends_link&sk=055e5c73e0dd11fd8cb25130242f388e).
 - [producthunt-trending](https://github.com/xiaomingplus/producthunt-trending)
